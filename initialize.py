@@ -1,6 +1,8 @@
 # init.py
 
 import os
+
+os.system("pip install cryptography")
 from cryptography.fernet import Fernet
 import pickle
 import time
