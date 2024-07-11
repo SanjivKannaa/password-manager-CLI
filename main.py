@@ -3,19 +3,11 @@ from cryptography.fernet import Fernet
 import pickle
 import os
 
-
-
 os.system('color A')
-
-
 
 path_source = input('enter the file number : ')
 path = ''
-path = 'file' + path_source[0] + '\\file' + path_source[1] + '\\file' + path_source[2] + '\\file.bin'
-
-
-
-
+path = 'file' + str(path_source) + '.bin'
 
 def encry(data):
     try:
@@ -37,30 +29,11 @@ def decry(data):
     except:
         return False
       
-
-
-
-
-
-
-
-
-
-
-
 def get_master_pass():
     f = open('master_pass.bin', 'rb')
     content = decry(pickle.load(f)[0])
     f.close()
     return content
-
-
-
-
-
-
-
-
 
 def option1():
     f = open('data.bin', 'rb')
@@ -155,8 +128,6 @@ def restore_backup():
     f.close()
     return True
 
-
-
 while True:
     password = input('enter master_password : ')
     if get_master_pass() == password:
@@ -181,4 +152,3 @@ while True:
                 print('not valid')
     else:
         print('incorrect master_password')
-
